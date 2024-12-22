@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="d-flex flex-row align-items-start gap-2">
                 <a class="navbar-brand">Rentili</a>
-                <a class="navbar-brand" href="">Home</a>
+                <a class="navbar-brand" href="">Clients</a>
                 <a class="navbar-brand" href="">About</a>
             </div>
           <form class="d-flex" role="search">
@@ -23,8 +23,13 @@
           </form>
         </div>
       </nav>
-      <main>
+      <main class="mt-5">
         @yield('content')
       </main>
+      @if (session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div>
+      @endif
 </body>
 </html>
