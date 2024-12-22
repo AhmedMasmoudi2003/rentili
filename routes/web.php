@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AppartmentController;
+Route::resource('appartments', AppartmentController::class);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
