@@ -1,7 +1,15 @@
 @extends('appartments.template')
 @section('title', 'list of Appartments')
+
+@section('search')
+<form class="d-flex" role="search" action="{{route('appartments.search')}}" method="POST">
+    @csrf
+    <input class="form-control mx-2 mr-sm-2 py-sm-0" name="keyword" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+@endsection
+
 @section('content')
-<br><br>
 <div class="row">
     <div class="col-6">
         <h2>Manage <b>Appartments</b></h2>
