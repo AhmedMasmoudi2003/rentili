@@ -34,7 +34,10 @@
                 				@elseif($Client->warnings_count >= 3)table-danger @endif">
 						<td class="align-middle">{{ $Client->name }}</td>
 						<td class="align-middle">{{ $Client->mail }}</td>
-						<td class="align-middle">{{ $Client->CIN }}</td>
+						<td class="align-middle">
+							<span class="text-muted" style="filter: blur(5px);">{{ substr($Client->CIN, 0, -3) }}</span>
+							<span class="font-weight-bold">{{ substr($Client->CIN, -3) }}</span>
+						</td>
 						<td class="align-middle">{{ $Client->phone }}</td>
 						<td class="align-middle">{{ $Client->warnings_count }}</td>
 						<td class="text-center align-middle">
