@@ -7,5 +7,5 @@ Route::resource('appartments', AppartmentController::class);
 Route::resource('clients', ClientsController::class);
 Route::post('clients/{client}/add-warning', [ClientsController::class, 'addWarning'])->name('clients.addWarning');
 Route::get('/', function () {
-    return view('index');
+    return view('SignIn/signin');
 });

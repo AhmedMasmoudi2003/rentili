@@ -46,6 +46,7 @@ class ClientsController extends Controller
         $client->delete();
         return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
     }
+    /////////////
     public function addWarning(Clients $client)
     {
         $client->warnings_count += 1;
