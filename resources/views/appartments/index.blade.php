@@ -1,6 +1,7 @@
-@extends('app')
+@extends('appartments.template')
 @section('title', 'list of Appartments')
 @section('content')
+<br><br>
 <div class="row">
     <div class="col-6">
         <h2>Manage <b>Appartments</b></h2>
@@ -11,10 +12,10 @@
         </a>
     </div>
 </div>
-
+<br>
 @if(@session()->has('info'))
     <div class="alert alert-success">
-        {{@session('info')}}
+        {{session('info')}}
     </div>
 @endif
 
@@ -26,13 +27,13 @@
                 <th>location</th>
                 <th>price</th>
                 <th>client name</th>
-                <th>Actions</th>
+                <th colspan="3">Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($appartments as $appartment)
             <tr>
-                <td>{{$appartment->name}}</td>
+                <td>{{$appartment->appartment_name}}</td>
                 <td>{{$appartment->location}}</td>
                 <td>{{$appartment->price}}</td>
                 <td>{{$appartment->client_name}}</td>
@@ -51,5 +52,5 @@
         </tbody>
     </table>
 </div>
-{{$products->links("pagination::bootstrap-5")}}
-@endsession
+{{$appartments->links("pagination::bootstrap-5")}}
+@endsection

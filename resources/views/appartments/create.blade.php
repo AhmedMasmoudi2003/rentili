@@ -11,9 +11,9 @@
 <form action="{{ route('appartments.store') }}" method="POST">
     @csrf
     <div class="col-md-6">
-        <label for="name">Name :</label>
-        <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}" required>
-        @error('name')
+        <label for="appartment_name">Name :</label>
+        <input type="text" name="appartment_name" id="appartment_name" class="form-control" value="{{old('appartment_name')}}" required>
+        @error('appartment_name')
             <div class="alert alert-danger">{{$message}}</div>
         @enderror
     </div>

@@ -16,6 +16,6 @@ Route::resource('appartments', AppartmentController::class);
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/appartments/index', [AppartmentController::class, 'index']);
+
+Route::post('/appartments/search', [AppartmentController::class, 'search'])->name('appartments.search');
