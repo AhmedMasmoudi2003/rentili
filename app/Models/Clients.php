@@ -13,5 +13,6 @@ class Clients extends Model
         'phone',
         'mail',
         'CIN',
+        'warnings_count',
     ];
 }

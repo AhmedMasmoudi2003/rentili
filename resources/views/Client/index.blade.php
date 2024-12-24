@@ -14,33 +14,48 @@
         			</a>
     			</div>
 			</div>
-			<table class="table table-striped table-hover">
+			<table class="table table-striped table-hover bg-table-transparent">
 				<thead>
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
 						<th>CIN</th>
 						<th>Phone</th>
-						<th>Actions</th>
+						<th>Warnings</th>
+						<th class="text-center">Actions</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
                  @foreach($Clients as $Client)
-					<tr>
-						<td>{{ $Client->name }}</td>
-						<td>{{ $Client->mail }}</td>
-						<td>{{ $Client->CIN }}</td>
-						<td>{{ $Client->phone }}</td>
-						<td>
-							<a href="{{ route('clients.edit', $Client->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+					<tr class="@if($Client->warnings_count == 0)table-success
+								@elseif($Client->warnings_count==1)table-secondary
+                				@elseif($Client->warnings_count == 2)table-warning
+                				@elseif($Client->warnings_count >= 3)table-danger @endif">
+						<td class="align-middle">{{ $Client->name }}</td>
+						<td class="align-middle">{{ $Client->mail }}</td>
+						<td class="align-middle">{{ $Client->CIN }}</td>
+						<td class="align-middle">{{ $Client->phone }}</td>
+						<td class="align-middle">{{ $Client->warnings_count }}</td>
+						<td class="text-center align-middle">
+							<a href="{{ route('clients.edit', $Client->id) }}" class="btn btn-warning btn-sm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">Edit</i></a>
 							<form action="{{ route('clients.destroy', $Client->id) }}" method="POST" style="display:inline;">
         						@csrf
         						@method('DELETE')
-        						<button type="submit" class="delete" style="background: none; border: none;">
-            						<i class="material-icons" data-toggle="tooltip" title="Delete"></i>
+        						<button type="submit" class="" style="background: none; border: none;">
+            						<i class="btn btn-danger btn-sm" data-toggle="tooltip" title="Delete">Delete</i>
         						</button>
     						</form>
+							<form action="{{ route('clients.addWarning', $Client->id) }}" method="POST" style="display:inline;">
+                        		@csrf
+                        		<button type="submit" class="btn btn-warning btn-sm">Add Warning</button>
+                    		</form>
 						</td>
+						<td class="align-middle">
+                    		<a href="{{ route('clients.show', $Client->id) }}" class="btn btn-primary btn-sm">
+                        		View Details
+                    		</a>
+               	 		</td>
 					</tr>
 					@endforeach
 				</tbody>

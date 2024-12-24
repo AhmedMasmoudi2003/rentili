@@ -38,10 +38,18 @@ class ClientsController extends Controller
         ]);
         $client->update($request->all());
         return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
-}
-
+    }
+    public function show(Clients $client){
+        return view('client.show', compact('client'));
+    }
     public function destroy(Clients $client){
         $client->delete();
         return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
+    }
+    public function addWarning(Clients $client)
+    {
+        $client->warnings_count += 1;
+        $client->save();
+        return redirect()->route('clients.index')->with('success', 'Warning added successfully');
     }
 }

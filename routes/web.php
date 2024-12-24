@@ -14,3 +14,4 @@ use App\Http\Controllers\ClientsController;
 */
 
 Route::resource('clients', ClientsController::class);
+Route::post('clients/{client}/add-warning', [ClientsController::class, 'addWarning'])->name('clients.addWarning');

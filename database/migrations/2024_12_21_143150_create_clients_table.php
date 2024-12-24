@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('phone');
             $table->String('mail');
             $table->integer('CIN');
+            $table->integer('warnings_count')->default(0);
         });
     }
 
