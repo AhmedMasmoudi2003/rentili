@@ -38,7 +38,7 @@
 						<td class="align-middle">{{ $Client->phone }}</td>
 						<td class="align-middle">{{ $Client->warnings_count }}</td>
 						<td class="text-center align-middle">
-							<a href="{{ route('clients.edit', $Client->id) }}" class="btn btn-warning btn-sm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">Edit</i></a>
+							<a href="{{ route('clients.edit', $Client->id) }}" class="btn bg-secondary btn-sm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">Edit</i></a>
 							<form action="{{ route('clients.destroy', $Client->id) }}" method="POST" style="display:inline;">
         						@csrf
         						@method('DELETE')
