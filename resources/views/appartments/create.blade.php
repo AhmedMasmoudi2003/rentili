@@ -38,6 +38,7 @@
             <div class="alert alert-danger">{{$message}}</div>
         @enderror
     </div>
+    <br>
     <div class="col-md-6">
         <button type="submit" class="btn btn-primary">Validate</button>
     </div>

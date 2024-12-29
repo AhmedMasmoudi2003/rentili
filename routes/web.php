@@ -9,3 +9,4 @@ Route::post('clients/{client}/add-warning', [ClientsController::class, 'addWarni
 Route::get('/', function () {
     return view('SignIn/signin');
 });
+Route::post('/appartments/search', [AppartmentController::class, 'search'])->name('appartments.search');
