@@ -15,3 +15,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clients', ClientsController::class);
     Route::post('clients/{client}/add-warning', [ClientsController::class, 'addWarning'])->name('clients.addWarning');
 });
+Route::post('/appartments/search', [AppartmentController::class, 'search'])->name('appartments.search');
