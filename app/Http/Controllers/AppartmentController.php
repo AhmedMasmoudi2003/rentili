@@ -130,7 +130,7 @@ class AppartmentController extends Controller
         $appartments = Appartment::where('appartment_name', 'like', '%'.$keyword.'%')
             ->orWhere('location', 'like', '%'.$keyword.'%')
             ->orWhere('price', 'like', '%'.$keyword.'%')
-            ->orWhere('client_name', 'like', '%'.$keyword.'%')
+            ->orWhere('client_id', 'like', '%'.$keyword.'%')
             ->paginate(5);
 
         return view('appartments.index', compact('appartments'));
