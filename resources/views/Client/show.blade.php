@@ -6,7 +6,7 @@
         <div class="card-header">Details for {{ $client->name }}</div>
         <div class="card-body">
             <p><strong>Name:</strong> {{ $client->name }}</p>
-            <p><strong>Email:</strong> {{ $client->email }}</p>
+            <p><strong>Email:</strong> {{ $client->mail }}</p>
             <p><strong>Phone:</strong> {{ $client->phone ?? 'N/A' }}</p>
             <p><strong>CIN:</strong> {{ $client->CIN }}</p>
             <a href="{{ route('clients.index') }}" class="btn btn-secondary">Back to List</a>

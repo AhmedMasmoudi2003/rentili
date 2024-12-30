@@ -22,10 +22,10 @@ class ClientsController extends Controller
         //lahna unique:Clients no9sdou biha fama mail barka ib heka il adresse fil tableau Clients
         $request->validate([
             //n5aliw il max imta3 il name lil 20 bech maya3milha 7ad sql injection
-            'name' => 'required|string|max:20',
-            'mail' => 'required|email|unique:Clients',
-            'phone' => 'nullable',
-            'CIN' => 'required|integer|unique:Clients',
+            'name' => ['required', 'string', 'max:20'],
+            'mail' => ['required', 'email', 'unique:clients'],
+            'phone' => ['nullable'],
+            'CIN' => ['required', 'integer', 'unique:clients'],
         ]);
         Clients::create($request->all());
         return redirect()->route('clients.index')->with('success', 'Client added successfully.');
@@ -56,7 +56,7 @@ class ClientsController extends Controller
             DB::rollBack();
             return redirect()->route('clients.index')
                 ->with('error', 'an Error occured : ' . $e->getMessage());
-        }
+            }
     }
     //show
     public function show(Clients $client){
