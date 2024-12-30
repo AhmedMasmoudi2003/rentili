@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('appartments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('appartment_name');
             $table->string('location');
             $table->integer('price');
-            $table->string('client_id');
-            $table->string('client_name');
+            $table->foreignId('client_id')
+                  ->constrained()
+                  ->onDelete('restrict')
+                  ->onUpdate('restrict');
         });
     }
 

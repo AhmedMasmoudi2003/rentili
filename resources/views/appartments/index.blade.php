@@ -36,7 +36,7 @@
                 <td>{{$appartment->appartment_name}}</td>
                 <td>{{$appartment->location}}</td>
                 <td>{{$appartment->price}}</td>
-                <td>{{$appartment->client_name}}</td>
+                <td>{{$appartment->client->name}}</td>
                 <td><a href="{{route('appartments.show', $appartment)}}" class="btn btn-info">Open</a></td>
                 <td><a href="{{route('appartments.edit', $appartment)}}" class="btn btn-warning">Edit</a></td>
                 <td>

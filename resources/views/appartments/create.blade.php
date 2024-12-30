@@ -33,7 +33,14 @@
     </div>
     <div class="col-md-6">
         <label for="client_name">client name :</label>
-        <textarea name="client_name" id="client_name" class="form-control" required>{{old('client_name')}}</textarea>
+        <select name="client_id" id="client_id" class="form-control" required>
+            <option value="" disabled selected>Select a client</option>
+            @foreach ($clients as $client)
+                <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>
+                    {{ $client->name }}
+                </option>
+            @endforeach
+        </select>
         @error('client_name')
             <div class="alert alert-danger">{{$message}}</div>
         @enderror
