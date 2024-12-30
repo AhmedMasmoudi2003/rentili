@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appartment;
+use App\Models\Clients;
 use Illuminate\Support\Facades\DB; // Import the DB facade
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class AppartmentController extends Controller
      */
     public function index()
     {
-        $appartments = Appartment::paginate(5);
+        $appartments = Appartment::with('client')->paginate(5);
         return view('appartments.index', compact('appartments'));
     }
 
@@ -22,7 +23,8 @@ class AppartmentController extends Controller
      */
     public function create()
     {
-        return view('appartments.create');
+        $clients=Clients::all();
+        return view('appartments.create' , compact('clients'));
     }
 
     /**
@@ -34,7 +36,7 @@ class AppartmentController extends Controller
             'appartment_name' => ['bail','string','required'],
             'location' => ['bail','string','required'],
             'price' => ['bail','integer','required'],
-            'client_name' => ['bail','string'],
+            'client_id' => ['bail','integer','required'],
         ]);
         Appartment::create($validatedData);
         return redirect()->route('appartments.index')
@@ -66,7 +68,7 @@ class AppartmentController extends Controller
             'appartment_name' => ['bail','string','required'],
             'location' => ['bail','string','required'],
             'price' => ['bail','integer','required'],
-            'client_name' => ['bail','string'],
+            'client_id' => ['bail','integer','required'],
         ]);
         DB::beginTransaction();
         try{
@@ -128,7 +130,7 @@ class AppartmentController extends Controller
         $appartments = Appartment::where('appartment_name', 'like', '%'.$keyword.'%')
             ->orWhere('location', 'like', '%'.$keyword.'%')
             ->orWhere('price', 'like', '%'.$keyword.'%')
-            ->orWhere('client_name', 'like', '%'.$keyword.'%')
+            ->orWhere('client_id', 'like', '%'.$keyword.'%')
             ->paginate(5);
 
         return view('appartments.index', compact('appartments'));

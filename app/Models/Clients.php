@@ -15,4 +15,8 @@ class Clients extends Model
         'CIN',
         'warnings_count',
     ];
+    public function appartment()
+    {
+        return $this->hasMany(Appartment::class);
+    }
 }
