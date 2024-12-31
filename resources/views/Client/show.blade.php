@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="container mt-4">
+<div class="mt-4">
     <h2>Client Details</h2>
     <div class="card mt-4">
         <div class="card-header">Details for {{ $client->name }}</div>

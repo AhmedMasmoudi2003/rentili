@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         User::create([
             'name'=>'melek',
-            'email' => 'melekdergaaofficial@gmail.com',  
-            'password' => Hash::make('melekdergaa'),  
+            'email' => 'ahmedmasmoudi@gmail.com',  
+            'password' => Hash::make('Ahmed1234'),  
         ]);
     }
 }

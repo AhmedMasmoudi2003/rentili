@@ -6,7 +6,7 @@
     <div class="col-6">
         <h2>Manage <b>Appartments</b></h2>
     </div>
-    <div class="col">
+    <div class="col text-end">
         <a href="{{route('appartments.create')}}" class="btn btn-success">
             add a new appartment
         </a>
@@ -37,7 +37,7 @@
                 <td>{{$appartment->location}}</td>
                 <td>{{$appartment->price}}</td>
                 <td>{{$appartment->client->name}}</td>
-                <td><a href="{{route('appartments.show', $appartment)}}" class="btn btn-info">Open</a></td>
+                <td><a href="{{route('appartments.show', $appartment)}}" class="btn btn-primary">Open</a></td>
                 <td><a href="{{route('appartments.edit', $appartment)}}" class="btn btn-warning">Edit</a></td>
                 <td>
                     <form action="{{route('appartments.destroy', $appartment)}}" method="POST"

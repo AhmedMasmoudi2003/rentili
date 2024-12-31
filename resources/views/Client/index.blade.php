@@ -1,7 +1,7 @@
 @extends('layout')
 @section("title", "Clients")
 @section('content')
-<div class="container-xl">
+
 	<div class="table-responsive">
 		<div class="table-wrapper">
 			<div class="manage-employees py-3 border-bottom mb-4">
@@ -66,6 +66,5 @@
 			{{ $Clients->links("pagination::bootstrap-5") }}
 		</div>
 	</div>        
-</div>
 
 @endsection
